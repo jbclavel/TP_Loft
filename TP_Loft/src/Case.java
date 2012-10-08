@@ -8,10 +8,11 @@ public class Case {
 	private ArrayList<Ingredient> ressources;
 	private ArrayList<Neuneu> personnes;
 	
-	public Case(int a, int b, ArrayList<Ingredient> ressource){
+	public Case(int a, int b, ArrayList<Ingredient> c, ArrayList<Neuneu> d){
 		this.abs=a;
 		this.ordo=b;
-		this.ressources=ressource;
+		this.ressources=c;
+		this.personnes=d;
 	}
 	
 	public void ajoutRessource(Ingredient a){
@@ -22,12 +23,8 @@ public class Case {
 		personnes.add(a);
 		}
 	
-	public boolean getNbNeuneu(){
-		if (personnes.size() > 1){
-			return false;
-		}else{
-			return true;
-		}
+	public int getNbNeuneu(){
+		return personnes.size();
 	}
 	
 	public String getNomNeuneu(){

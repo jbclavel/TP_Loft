@@ -11,6 +11,16 @@ public abstract class Neuneu {
 	 protected int energie;
 	 protected ArrayList<String> nourriture ;
 	 
+	 public Neuneu(int a, String b, int c, int d, Loft e, int f, ArrayList<String> g){
+		 this.besoin=a;
+		 this.nom=b;
+		 this.ordo=c;
+		 this.abs=d;
+		 this.loft=e;
+		 this.energie=f;
+		 this.nourriture=g;
+	 } 
+	 
 	 public abstract void seDeplace();
 	 public abstract void mange();
 	 public abstract void seReproduit(Neuneu a);
@@ -25,7 +35,44 @@ public abstract class Neuneu {
 	 public void cycledevie(){
 		 this.seDeplace();
 		 this.mange();
-		// if this.seReproduit(?????);
+		 
+		 if (this.loft.getCases()[this.abs][this.ordo].getNbNeuneu()=1){
+			 seReproduit((Neuneu) this.loft.getCases()[this.abs][this.ordo].getNomNeuneu());
+		 }
+		 
+				
 	 }
+
+	public int getOrdo() {
+		return ordo;
+	}
+
+	public void setOrdo(int ordo) {
+		this.ordo = ordo;
+	}
+
+	public int getAbs() {
+		return abs;
+	}
+
+	public void setAbs(int abs) {
+		this.abs = abs;
+	}
+
+	public int getEnergie() {
+		return energie;
+	}
+
+	public void setEnergie(int energie) {
+		this.energie = energie;
+	}
+
+	public int getBesoin() {
+		return besoin;
+	}
+
+	public ArrayList<String> getNourriture() {
+		return nourriture;
+	}
 	 
 }
