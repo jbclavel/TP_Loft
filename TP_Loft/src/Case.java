@@ -5,10 +5,10 @@ public class Case {
 	
 	private int abs;
 	private int ordo;
-	private ArrayList<Ingredient> ressources;
+	private Ingredient ressources;
 	private ArrayList<Neuneu> personnes;
 	
-	public Case(int a, int b, ArrayList<Ingredient> c, ArrayList<Neuneu> d){
+	public Case(int a, int b, Ingredient c, ArrayList<Neuneu> d){
 		this.abs=a;
 		this.ordo=b;
 		this.ressources=c;
@@ -16,7 +16,7 @@ public class Case {
 	}
 	
 	public void ajoutRessource(Ingredient a){
-		this.ressources.add(a);
+		this.ressources= a ;
 	}
 	
 	public void ajoutNeuneu(Neuneu a){
@@ -27,8 +27,8 @@ public class Case {
 		return personnes.size();
 	}
 	
-	public String getNomNeuneu(){
-		return personnes.get(0).nom;
+	public Neuneu getNomNeuneu(){
+		return personnes.get(0);
 	}
 	
 	
@@ -40,7 +40,7 @@ public class Case {
 		return ordo;
 	}
 	
-	public ArrayList<Ingredient> getRessources() {
+	public Ingredient getRessources() {
 		return ressources;
 	}
 	
