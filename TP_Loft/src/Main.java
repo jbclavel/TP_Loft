@@ -9,6 +9,7 @@ public class Main {
 		
 		ArrayList<Neuneu> neuneus = new ArrayList<Neuneu>();
 		ArrayList<Ingredient> ingredient = new ArrayList<Ingredient>();
+		
 		Loft loft = new Loft(Saison1.tailleLofthauteur,Saison1.tailleLoftlargeur,neuneus, ingredient);
 			//loft.remplissageAleatoire(0.1f);
 				
@@ -23,62 +24,20 @@ public class Main {
 					ingredient.add(new Viande((int)(Math.random()*(Saison1.tailleLofthauteur))+1,
 								(int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
 								(int)(Math.random()*10)));
-				
 			}	
 			
+			//visualisation public visualistion (){..}
 			
-			for (int i=1; i<= Saison1.tailleLoftlargeur;i++){
-				System.out.print("    " + i);
-			}
-			System.out.print("\n");
-			
-			boolean presence=false;
-			boolean presenceIngredient=false;
-			
-			for (int i=1; i<= Saison1.tailleLofthauteur ; i++){
-				System.out.print("\n"+ i+"  ");
-				for (int j=1; j<= Saison1.tailleLoftlargeur ; j++){
-					//presence lofteur
-					for (int h=0; h <= Saison1.nombreLofteurs-1 ; h++){
-						if (neuneus.get(h).getOrdo()==i && neuneus.get(h).getAbs()==j){
-							presence = true;
-						}
-					}
-					//presence ingredient
-					for (int k=0; k <= Saison1.nombreIngredient-1 ; k++){
-						if (ingredient.get(k).getOrdo()==i && ingredient.get(k).getAbs()==j){
-							presenceIngredient = true;
-						}
-					}
-
-					if (presence==true && presenceIngredient==true){
-						System.out.print("|E.I ");
-						presence = false;
-						presenceIngredient = false;
-						}else if(presence==true && presenceIngredient==false){
-							System.out.print("|E.- ");
-							presence = false;
-							}else if(presence==false && presenceIngredient==true){							
-								System.out.print("|0.I ");
-								presenceIngredient= false;
-								}else if(presence==false && presenceIngredient==false){							
-									System.out.print("|0.- ");
-								}
-					}
-			}
+			loft.visualisation();
+			}}
 	
-
-	
-			for (int p=0; p <= Saison1.nombreLofteurs-1 ; p++){
-				System.out.println(neuneus.get(p).getAbs() +" "+ neuneus.get(p).getOrdo());
-				}
 			
-			for (int m=0; m <= Saison1.nombreIngredient-1 ; m++){
-				System.out.println(ingredient.get(m).getAbs() +" "+ ingredient.get(m).getOrdo());
-				}
-	}
-}
-/*	public static void main(String[] args) {
+/*	
+ * des que j'appuie sur enter : for neuneus.get(h).cycle de vie(){}
+ * 								end for
+ * 								visualisation;
+ * 
+ * public static void main(String[] args) {
 		Loft loft1 = new Loft(2,2);
 		
 		Viande viande1= new Viande(10);
