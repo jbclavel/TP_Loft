@@ -11,9 +11,8 @@ public class Main {
 		ArrayList<Ingredient> ingredient = new ArrayList<Ingredient>();
 		
 		Loft loft = new Loft(Saison1.tailleLofthauteur,Saison1.tailleLoftlargeur,neuneus, ingredient);
-			//loft.remplissageAleatoire(0.1f);
-				
-			for (int i=1; i<= Saison1.nombreLofteurs;i++){
+		
+		for (int i=1; i<= Saison1.nombreLofteurs;i++){
 					neuneus.add(new Erratique((int)(Math.random()*(Saison1.tailleLofthauteur))+1,
 							(int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
 							loft,
@@ -26,9 +25,13 @@ public class Main {
 								(int)(Math.random()*10)));
 			}	
 			
-			//visualisation public visualistion (){..}
 			
-			loft.visualisation();
+						
+			//visualisation
+			loft.creationCase();
+			//System.out.println(loft.getCases()[0][0].getNomNeuneu());
+			//neuneus.get(0).cycledevie();
+			//loft.visualisation();
 			}}
 	
 			

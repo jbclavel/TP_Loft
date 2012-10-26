@@ -5,14 +5,14 @@ public class Case {
 	
 	private int abs;
 	private int ordo;
+	protected Loft loft;
 	private Ingredient ressources;
 	private ArrayList<Neuneu> personnes;
 	
-	public Case(int a, int b, Ingredient c, ArrayList<Neuneu> d){
+	public Case(int a, int b){
 		this.abs=a;
 		this.ordo=b;
-		this.ressources=c;
-		this.personnes=d;
+		this.personnes = new ArrayList<Neuneu>();
 	}
 	
 	public void ajoutRessource(Ingredient a){

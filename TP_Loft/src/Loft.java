@@ -15,8 +15,8 @@ public class Loft {
 		this.hauteur = a;
 		this.largeur = b;
 		setCases(new Case[hauteur][largeur]);
-		this.neuneus=c;
-		this.ingredient=d;
+		neuneus=c;
+		ingredient=d;
 	}
 	
 	
@@ -25,7 +25,7 @@ public class Loft {
 	}
 
 	public void setCases(Case[][] cases) {
-		this.cases = cases;
+		Loft.cases = cases;
 	}
 
 	public int getHauteur() {
@@ -50,13 +50,13 @@ public class Loft {
 		for (int j=1; j<= Saison1.tailleLoftlargeur ; j++){
 			//presence lofteur
 			for (int h=0; h <= Saison1.nombreLofteurs-1 ; h++){
-				if (this.neuneus.get(h).getOrdo()==i && this.neuneus.get(h).getAbs()==j){
+				if (neuneus.get(h).getOrdo()==i && neuneus.get(h).getAbs()==j){
 					presence = true;
 				}
 			}
 			//presence ingredient
 			for (int k=0; k <= Saison1.nombreIngredient-1 ; k++){
-				if (this.ingredient.get(k).getOrdo()==i && this.ingredient.get(k).getAbs()==j){
+				if (ingredient.get(k).getOrdo()==i && ingredient.get(k).getAbs()==j){
 					presenceIngredient = true;
 				}
 			}
@@ -78,14 +78,51 @@ public class Loft {
 	}
 
 
-/*
+
 	for (int p=0; p <= Saison1.nombreLofteurs-1 ; p++){
 		System.out.println(neuneus.get(p).getAbs() +" "+ neuneus.get(p).getOrdo());
 		}
 	
 	for (int m=0; m <= Saison1.nombreIngredient-1 ; m++){
 		System.out.println(ingredient.get(m).getAbs() +" "+ ingredient.get(m).getOrdo());
-		}*/
+		}
 	}
+	
+	
+	public void creationCase(){	
+		
+	}
+	for (int i=1; i<= Saison1.tailleLofthauteur ; i++){
+		for (int j=1; j<= Saison1.tailleLoftlargeur ; j++){
+			//presence lofteur
+			
+			
+			for (int h=0; h <= Saison1.nombreLofteurs-1 ; h++){
+				if (neuneus.get(h).getOrdo()==i && neuneus.get(h).getAbs()==j){
+					neuneus.get(0).getLoft().getCases()[j][i].new Case(j,i);
+					ajoutNeuneu(neuneus.get(h));					
+				}
+			//}
+			//presence ingredient
+			for (int k=0; k <= Saison1.nombreIngredient-1 ; k++){
+				if (ingredient.get(k).getOrdo()==i && ingredient.get(k).getAbs()==j){
+					Neuneu a = neuneus.get(0);
+					Case b= a.getLoft().getCases()[j][i];
+					System.out.println(b);
+					b.ajoutRessource(ingredient.get(k));
+					Ingredient f = ingredient.get(k);
+				}
+			}
+
+			}
+	}
+	}
+	
+	
+	
+	
+	
+	
+	
 	}
 

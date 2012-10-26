@@ -15,7 +15,11 @@ public abstract class Neuneu {
 	 		this.energie += nourriture.getEnergie();
 	 }
 	 
-	 public abstract void seReproduit(Neuneu a);
+	 public Loft getLoft() {
+		return loft;
+	}
+
+	public abstract void seReproduit(Neuneu a);
 	 
 	 public boolean estExclu(){ 
 		 if(this.energie< 2){
@@ -27,7 +31,15 @@ public abstract class Neuneu {
 	 
 	 public void cycledevie(){
 		 this.seDeplace();
-		 
+		
+		 /* 
+		 for(o=0 ; o <= Saison1.nombreIngredient; h++){
+		 		 if(this.loft.getCase()[this.abs][this.ordo]getRessources()!=null){
+		 			 this.mange(this.loft.getCases()[this.abs][this.ordo].getRessources())
+		 		 }
+		 		 }
+		 }
+		 */
 		 if(this.loft.getCases()[this.abs][this.ordo].getRessources()!=null){
 			 this.mange(this.loft.getCases()[this.abs][this.ordo].getRessources());
 		 }
