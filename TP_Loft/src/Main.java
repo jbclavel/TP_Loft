@@ -1,3 +1,6 @@
+import java.io.*;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 
 public class Main {
@@ -25,16 +28,27 @@ public class Main {
 								(int)(Math.random()*10)));
 			}	
 			
-			
-						
-			//visualisation
 			loft.creationCase();
 			loft.majCase();
 			loft.visualisation();
-			neuneus.get(0).cycledevie();
-			loft.majCase();
-			loft.visualisation();
-			//loft.visualisation();
+			int i=0;
+			while(i <10){
+				
+				Reader r = new InputStreamReader(System.in);
+				try {
+					r.read();
+				} catch (IOException ioe) {
+					ioe.printStackTrace();
+				}
+				
+				neuneus.get(0).cycledevie();
+				loft.visualisation();
+				loft.majCase();
+				i++;
+			}
+						
+			
+			
 			}}
 	
 			
