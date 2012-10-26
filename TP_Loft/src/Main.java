@@ -29,8 +29,11 @@ public class Main {
 						
 			//visualisation
 			loft.creationCase();
-			//System.out.println(loft.getCases()[0][0].getNomNeuneu());
-			//neuneus.get(0).cycledevie();
+			loft.majCase();
+			loft.visualisation();
+			neuneus.get(0).cycledevie();
+			loft.majCase();
+			loft.visualisation();
 			//loft.visualisation();
 			}}
 	

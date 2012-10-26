@@ -14,7 +14,7 @@ public class Loft {
 	public Loft(int a, int b, ArrayList<Neuneu> c, ArrayList<Ingredient> d){
 		this.hauteur = a;
 		this.largeur = b;
-		setCases(new Case[hauteur][largeur]);
+		cases = new Case[hauteur][largeur];
 		neuneus=c;
 		ingredient=d;
 	}
@@ -90,18 +90,35 @@ public class Loft {
 	
 	
 	public void creationCase(){	
-		
-	}
-	for (int i=1; i<= Saison1.tailleLofthauteur ; i++){
-		for (int j=1; j<= Saison1.tailleLoftlargeur ; j++){
+		for (int i=0; i< Saison1.tailleLofthauteur ; i++){
+			for (int j=0; j< Saison1.tailleLoftlargeur ; j++){
 			//presence lofteur
-			
-			
-			for (int h=0; h <= Saison1.nombreLofteurs-1 ; h++){
-				if (neuneus.get(h).getOrdo()==i && neuneus.get(h).getAbs()==j){
-					neuneus.get(0).getLoft().getCases()[j][i].new Case(j,i);
-					ajoutNeuneu(neuneus.get(h));					
+				Loft.cases[j][i]=new Case(j,i);
+			}
+		}
+	}
+	
+			public void majCase(){
+				for (int i=1; i<= Saison1.tailleLofthauteur ; i++){
+					for (int j=1; j<= Saison1.tailleLoftlargeur ; j++){
+					//presence lofteur
+						for (int h=0; h <= Saison1.nombreLofteurs-1 ; h++){
+							if (neuneus.get(h).getOrdo()==i && neuneus.get(h).getAbs()==j){
+								neuneus.get(0).getLoft().getCases()[j-1][i-1].ajoutNeuneu(neuneus.get(h));					
+							}
+						}
+					//presence ingredient
+						for (int k=0; k <= Saison1.nombreIngredient-1 ; k++){
+							if (ingredient.get(k).getOrdo()==i && ingredient.get(k).getAbs()==j){
+								neuneus.get(0).getLoft().getCases()[j-1][i-1].ajoutRessource(ingredient.get(k));
+							}
+						}
+					}
 				}
+			}
+			
+		
+							/*
 			//}
 			//presence ingredient
 			for (int k=0; k <= Saison1.nombreIngredient-1 ; k++){
@@ -113,16 +130,15 @@ public class Loft {
 					Ingredient f = ingredient.get(k);
 				}
 			}
-
-			}
-	}
-	}
-	
-	
-	
-	
-	
-	
+*/
 	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 

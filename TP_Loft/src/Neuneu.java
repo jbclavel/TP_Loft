@@ -30,26 +30,20 @@ public abstract class Neuneu {
 	 }
 	 
 	 public void cycledevie(){
+		 //deplacement
 		 this.seDeplace();
-		
-		 /* 
-		 for(o=0 ; o <= Saison1.nombreIngredient; h++){
-		 		 if(this.loft.getCase()[this.abs][this.ordo]getRessources()!=null){
-		 			 this.mange(this.loft.getCases()[this.abs][this.ordo].getRessources())
-		 		 }
-		 		 }
+		 //bouffe
+		if(this.loft.getCases()[this.abs][this.ordo].getRessources()!=null){
+		 	this.mange(this.loft.getCases()[this.abs][this.ordo].getRessources());
 		 }
-		 */
-		 if(this.loft.getCases()[this.abs][this.ordo].getRessources()!=null){
-			 this.mange(this.loft.getCases()[this.abs][this.ordo].getRessources());
-		 }
-		 
-		 if (this.loft.getCases()[this.abs][this.ordo].getNbNeuneu()==1){
+		//baise	
+		if (this.loft.getCases()[this.abs][this.ordo].getNbNeuneu()==1){
 		 	this.seReproduit(this.loft.getCases()[this.abs][this.ordo].getNomNeuneu());
 		 	 	}
-		 this.estExclu();
+		//s'exclut 
+		this.estExclu();
 	 }
-		 
+	 	 
 	public int getOrdo() {
 		return ordo;
 	}
