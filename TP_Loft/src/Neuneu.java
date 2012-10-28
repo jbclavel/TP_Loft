@@ -12,7 +12,9 @@ public abstract class Neuneu {
 	 public abstract void seDeplace();
 	 
 	 public void mange(Ingredient nourriture){
-	 		this.energie += nourriture.getEnergie();
+	 		int hasard =(int)(Math.random()*(nourriture.getEnergie()+1));
+	 		this.energie += hasard;
+	 		nourriture.setEnergie(nourriture.getEnergie()-hasard);
 	 }
 	 
 	 public Loft getLoft() {
@@ -22,9 +24,11 @@ public abstract class Neuneu {
 	public abstract void seReproduit(Neuneu a);
 	 
 	 public boolean estExclu(){ 
-		 if(this.energie< 2){
-			return true; 
+		 if(this.energie< Saison1.besoinMin){
+			 this.exclu= true;
+			 return true; 
 		 }else{
+			 this.exclu=false;
 			 return false;
 			 }
 	 }
@@ -33,15 +37,18 @@ public abstract class Neuneu {
 		 //deplacement
 		 this.seDeplace();
 		 //bouffe
-		if(this.loft.getCases()[this.abs][this.ordo].getRessources()!=null){
-		 	this.mange(this.loft.getCases()[this.abs][this.ordo].getRessources());
+		if(this.loft.getCases()[this.abs-1][this.ordo-1].getRessources()!=null){
+			if(this.loft.getCases()[this.abs-1][this.ordo-1].getRessources().energie!=0){
+		 	this.mange(this.loft.getCases()[this.abs-1][this.ordo-1].getRessources());
 		 }
+		}
 		//baise	
-		if (this.loft.getCases()[this.abs][this.ordo].getNbNeuneu()==1){
-		 	this.seReproduit(this.loft.getCases()[this.abs][this.ordo].getNomNeuneu());
+		if (this.loft.getCases()[this.abs-1][this.ordo-1].getNbNeuneu()==1){
+		 	this.seReproduit(this.loft.getCases()[this.abs-1][this.ordo-1].getNomNeuneu());
 		 	 	}
 		//s'exclut 
 		this.estExclu();
+			
 	 }
 	 	 
 	public int getOrdo() {
@@ -67,6 +74,12 @@ public abstract class Neuneu {
 	public void setEnergie(int energie) {
 		this.energie = energie;
 	}
+
+	public boolean isExclu() {
+		return exclu;
+	}
+	
+	
 
 	 
 }

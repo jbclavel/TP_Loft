@@ -13,5 +13,9 @@ public abstract class Ingredient {
 
 	public int getEnergie(){
 		return this.energie;
+		}
+	
+	public void setEnergie(int a){
+		energie= a;
 	}
 }

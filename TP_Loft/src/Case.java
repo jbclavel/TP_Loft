@@ -9,6 +9,10 @@ public class Case {
 	private Ingredient ressources;
 	private ArrayList<Neuneu> personnes;
 	
+	public ArrayList<Neuneu> getPersonnes() {
+		return personnes;
+	}
+
 	public Case(int a, int b){
 		this.abs=a;
 		this.ordo=b;
@@ -29,15 +33,6 @@ public class Case {
 	
 	public Neuneu getNomNeuneu(){
 		return personnes.get(0);
-	}
-	
-	
-	public int getAbs() {
-		return abs;
-	}
-	
-	public int getOrdo() {
-		return ordo;
 	}
 	
 	public Ingredient getRessources() {
