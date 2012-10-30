@@ -1,11 +1,11 @@
 public class Erratique extends Neuneu {
 
 	public Erratique(int c, int d, Loft e, int f){
-		 this.ordo=c;
-		 this.abs=d;
+		 this.abs=c;
+		 this.ordo=d;
 		 this.loft=e;
 		 this.energie=f;
-	 } 
+	} 
 	
 	public void seDeplace(){
 		
@@ -89,7 +89,8 @@ public class Erratique extends Neuneu {
 					this.abs+=1;
 					deDeplacement=10;
 				}else{			
-					System.out.println("pas depl4");		
+					System.out.println("pas depl4");
+					this.exclu=true;		
 				}
 		}
 	
@@ -113,7 +114,7 @@ public class Erratique extends Neuneu {
 		Loft.neuneus.add(new Erratique(this.abs,this.ordo,this.loft,10));
 		a.setEnergie(getEnergie()-5);
 		this.energie-=5;
-		a.isExclu();
+		a.estExclu();
 		//this.loft.getCases()[this.abs-1][this.ordo-1].ajoutNeuneu(new Erratique(this.abs,this.ordo,this.loft,10));
 		  }
 	

@@ -4,8 +4,8 @@ public class Cannibale extends Vorrace{
 		super(ordo,abs,loft,energie);
 		}
 	
-	public void manger() {
-	}
+	//public void manger() {
+	//}
 
 }
 

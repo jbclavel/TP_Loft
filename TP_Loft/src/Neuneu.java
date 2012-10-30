@@ -37,13 +37,13 @@ public abstract class Neuneu {
 		 //deplacement
 		 this.seDeplace();
 		 //bouffe
-		if(this.loft.getCases()[this.abs-1][this.ordo-1].getRessources()!=null){
+		if(this.loft.getCases()[this.abs-1][this.ordo-1].getRessources()!=null && this.exclu==false){
 			if(this.loft.getCases()[this.abs-1][this.ordo-1].getRessources().energie!=0){
 		 	this.mange(this.loft.getCases()[this.abs-1][this.ordo-1].getRessources());
 		 }
 		}
 		//baise	
-		if (this.loft.getCases()[this.abs-1][this.ordo-1].getNbNeuneu()==1){
+		if (this.loft.getCases()[this.abs-1][this.ordo-1].getNbNeuneu()==1 && this.exclu==false){
 		 	this.seReproduit(this.loft.getCases()[this.abs-1][this.ordo-1].getNomNeuneu());
 		 	 	}
 		//s'exclut 

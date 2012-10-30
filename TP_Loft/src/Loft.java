@@ -12,8 +12,8 @@ public class Loft {
 	
 	
 	public Loft(int a, int b, ArrayList<Neuneu> c, ArrayList<Ingredient> d){
-		this.hauteur = a;
-		this.largeur = b;
+		this.largeur = a;
+		this.hauteur = b;
 		cases = new Case[largeur][hauteur];
 		neuneus=c;
 		ingredient=d;
@@ -50,7 +50,7 @@ public class Loft {
 		System.out.print("\n"+ i+"  ");
 		for (int j=1; j<= Saison1.tailleLoftlargeur ; j++){
 			//presence lofteur
-			for (int h=0; h <= Saison1.nombreLofteurs-1 ; h++){
+			for (int h=0; h <= neuneus.size()-1 ; h++){
 				if (neuneus.get(h).getOrdo()==i && neuneus.get(h).getAbs()==j){
 					presence = true;
 					classe = neuneus.get(h).getClass().getName();
@@ -133,6 +133,7 @@ public class Loft {
 				for(int u=0; u<= neuneus.size()-1 ; u++){
 					if(Loft.neuneus.get(u).estExclu()){
 						Loft.neuneus.remove(u);
+						u-=1;
 					}
 				}
 				

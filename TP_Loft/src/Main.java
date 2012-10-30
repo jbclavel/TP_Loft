@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
-
+//changer le Loft.neuneus.get(0).getLoft()
 public class Main {
 
 	/**
@@ -11,42 +11,71 @@ public class Main {
 		ArrayList<Neuneu> neuneus = new ArrayList<Neuneu>();
 		ArrayList<Ingredient> ingredient = new ArrayList<Ingredient>();
 		
-		Loft loft = new Loft(Saison1.tailleLofthauteur,Saison1.tailleLoftlargeur,neuneus, ingredient);
+		Loft loft = new Loft(Saison1.tailleLoftlargeur,Saison1.tailleLofthauteur,neuneus, ingredient);
 		
-		for (int i=1; i<= Saison1.nombreLofteurs;i++){
-			int deTypeLofteur = (int)(Math.random()*10);
+		
+		while(neuneus.size()!=Saison1.nombreLofteurs){
+			
+			while(neuneus.size()!=Saison1.nombreLofteurs){
+				int deTypeLofteur = (int)(Math.random()*10);
 			switch (deTypeLofteur) {
 				case 0 : case 1 : case 2 : case 3 :
-					neuneus.add(new Erratique((int)(Math.random()*(Saison1.tailleLofthauteur))+1,
-							(int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+					neuneus.add(new Erratique((int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+							(int)(Math.random()*(Saison1.tailleLofthauteur))+1,
 							loft,
 							10));
 							
 				break;
 				case 4 : case 5 : case 6 :
-					neuneus.add(new Lapin((int)(Math.random()*(Saison1.tailleLofthauteur))+1,
-							(int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+					neuneus.add(new Lapin((int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+							(int)(Math.random()*(Saison1.tailleLofthauteur))+1,
 							loft,
 							10));
 				break;
 			
 				case 7 : case 8 :
-					neuneus.add(new Vorrace((int)(Math.random()*(Saison1.tailleLofthauteur))+1,
-							(int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+					neuneus.add(new Vorrace((int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+							(int)(Math.random()*(Saison1.tailleLofthauteur))+1,
 							loft,
 							10));
 				break;
 				
 				case 9 :
-					neuneus.add(new Cannibale((int)(Math.random()*(Saison1.tailleLofthauteur))+1,
-							(int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+					neuneus.add(new Cannibale((int)(Math.random()*(Saison1.tailleLoftlargeur))+1,
+							(int)(Math.random()*(Saison1.tailleLofthauteur))+1,
 							loft,
 							10));
 				break;
-			
-				
 			}
-		}
+			}
+			
+			ArrayList<Neuneu> neuneusClones = (ArrayList<Neuneu>) neuneus.clone();
+			System.out.println(neuneus.size());
+			System.out.println(neuneusClones.size());
+			boolean doublon = false;
+			
+			for(int w=0; w<=neuneus.size()-1 ; w++){
+				for(int z=0; z<=neuneusClones.size()-1; z++){
+					if(neuneus.get(w).getAbs()==neuneusClones.get(z).getAbs() && neuneus.get(w).getOrdo()==neuneusClones.get(z).getOrdo() && w!=z){
+						doublon = true;
+						}
+				}
+				if(doublon==true){ 
+					neuneus.remove(w);
+					neuneusClones.clear(); 
+					neuneusClones = (ArrayList<Neuneu>) neuneus.clone();
+					doublon=false;
+					System.out.println(neuneus.size());
+					System.out.println(neuneusClones.size());
+					w-=1;
+				}
+			}
+
+			System.out.println("hors boucle");	
+			neuneusClones.clear();
+			System.out.println(neuneus.size());
+			System.out.println(neuneusClones.size());
+			} 
 						
 			for (int i=1; i<= Saison1.nombreIngredient;i++){
 					ingredient.add(new Viande((int)(Math.random()*(Saison1.tailleLofthauteur))+1,
@@ -56,8 +85,9 @@ public class Main {
 			
 			loft.creationCase();
 			loft.visualisation();
+			//System.out.println(neuneus.size());
 			loft.majCase();
-			
+			//System.out.println(neuneus.size());
 				
 			//neuneus.get(0).seReproduit(neuneus.get(1));
 			
@@ -80,9 +110,9 @@ public class Main {
 				
 				for (int h=0; h <= neuneus.size()-1 ; h++){
 					neuneus.get(h).cycledevie();
-					if(!neuneus.get(h).isExclu()){
-						System.out.println(neuneus.get(h).getEnergie());
-						}
+					//if(!neuneus.get(h).isExclu()){
+						//System.out.println(neuneus.get(h).getEnergie());
+						//}
 					}
 				loft.visualisation();
 				i++;
