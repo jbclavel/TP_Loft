@@ -50,8 +50,8 @@ public class Main {
 			}
 			
 			ArrayList<Neuneu> neuneusClones = (ArrayList<Neuneu>) neuneus.clone();
-			System.out.println(neuneus.size());
-			System.out.println(neuneusClones.size());
+			//System.out.println(neuneus.size());
+			//System.out.println(neuneusClones.size());
 			boolean doublon = false;
 			
 			for(int w=0; w<=neuneus.size()-1 ; w++){
@@ -65,16 +65,16 @@ public class Main {
 					neuneusClones.clear(); 
 					neuneusClones = (ArrayList<Neuneu>) neuneus.clone();
 					doublon=false;
-					System.out.println(neuneus.size());
-					System.out.println(neuneusClones.size());
+					//System.out.println(neuneus.size());
+					//System.out.println(neuneusClones.size());
 					w-=1;
 				}
 			}
 
-			System.out.println("hors boucle");	
+			//System.out.println("hors boucle");	
 			neuneusClones.clear();
-			System.out.println(neuneus.size());
-			System.out.println(neuneusClones.size());
+			//System.out.println(neuneus.size());
+			//System.out.println(neuneusClones.size());
 			} 
 						
 			for (int i=1; i<= Saison1.nombreIngredient;i++){
